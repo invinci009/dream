@@ -42,7 +42,7 @@ export default function CampaignsTab({ campaigns, onRefresh }: CampaignsTabProps
   const [error, setError] = useState<string | null>(null)
 
   const copyCampaignUrl = (slug: string) => {
-    const url = `${window.location.origin}/r/${slug}`
+    const url = `https://dream-z584.vercel.app/r/${slug}`
     navigator.clipboard.writeText(url)
     setCopiedSlug(slug)
     setTimeout(() => setCopiedSlug(null), 2500)
@@ -200,13 +200,18 @@ export default function CampaignsTab({ campaigns, onRefresh }: CampaignsTabProps
 
             <CardContent className="p-4 sm:p-5 pt-4 space-y-4">
               {/* QR Image Preview */}
-              <div className="p-4 rounded-2xl bg-white flex items-center justify-center mx-auto max-w-[200px] shadow-md border border-stone-200">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`/api/business/qr?slug=${camp.slug}&format=png&v=3`}
-                  alt={`QR for ${camp.name}`}
-                  className="w-36 h-36 object-contain"
-                />
+              <div className="space-y-2">
+                <div className="p-4 rounded-2xl bg-white flex items-center justify-center mx-auto max-w-[200px] shadow-md border border-stone-200">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={`/api/business/qr?slug=${camp.slug}&format=png&domain=dream-z584.vercel.app&v=5`}
+                    alt={`QR for ${camp.name}`}
+                    className="w-36 h-36 object-contain"
+                  />
+                </div>
+                <p className="text-[11px] text-sky-400 font-mono text-center truncate px-2 select-all">
+                  https://dream-z584.vercel.app/r/{camp.slug}
+                </p>
               </div>
 
               {/* Actions: Copy Link, Download PNG, Download SVG */}
@@ -226,7 +231,7 @@ export default function CampaignsTab({ campaigns, onRefresh }: CampaignsTabProps
 
                 <div className="grid grid-cols-2 gap-2">
                   <a
-                    href={`/api/business/qr?slug=${camp.slug}&format=png&download=true&v=3`}
+                    href={`/api/business/qr?slug=${camp.slug}&format=png&download=true&domain=dream-z584.vercel.app&v=5`}
                     download={`dream-bazaar-qr-${camp.slug}.png`}
                     className="h-10 px-2.5 rounded-xl border border-slate-800 bg-slate-900/90 hover:bg-slate-800 text-slate-300 text-xs font-medium flex items-center justify-center gap-1.5 transition-colors active:scale-[0.98]"
                   >
@@ -235,7 +240,7 @@ export default function CampaignsTab({ campaigns, onRefresh }: CampaignsTabProps
                   </a>
 
                   <a
-                    href={`/api/business/qr?slug=${camp.slug}&format=svg&download=true&v=3`}
+                    href={`/api/business/qr?slug=${camp.slug}&format=svg&download=true&domain=dream-z584.vercel.app&v=5`}
                     download={`dream-bazaar-qr-${camp.slug}.svg`}
                     className="h-10 px-2.5 rounded-xl border border-slate-800 bg-slate-900/90 hover:bg-slate-800 text-slate-300 text-xs font-medium flex items-center justify-center gap-1.5 transition-colors active:scale-[0.98]"
                   >
@@ -245,7 +250,7 @@ export default function CampaignsTab({ campaigns, onRefresh }: CampaignsTabProps
                 </div>
 
                 <a
-                  href={`/r/${camp.slug}`}
+                  href={`https://dream-z584.vercel.app/r/${camp.slug}`}
                   target="_blank"
                   rel="noreferrer"
                   className="block text-center text-xs text-slate-400 hover:text-amber-400 pt-2 transition-colors py-1"

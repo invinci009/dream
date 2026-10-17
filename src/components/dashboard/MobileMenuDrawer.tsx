@@ -58,7 +58,7 @@ export default function MobileMenuDrawer({
   }
 
   const handleShareSurvey = async () => {
-    const surveyUrl = `${window.location.origin}/r/dream-bazaar`
+    const surveyUrl = 'https://dream-z584.vercel.app/r/dream-bazaar'
     if (navigator.share) {
       try {
         await navigator.share({

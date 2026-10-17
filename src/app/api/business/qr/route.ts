@@ -10,22 +10,12 @@ export async function GET(request: NextRequest) {
     return NextResponse.json({ error: 'Slug parameter is required' }, { status: 400 })
   }
 
-  const proto = request.headers.get('x-forwarded-proto') || (process.env.NODE_ENV === 'production' ? 'https' : 'http')
-  const host = request.headers.get('x-forwarded-host') || request.headers.get('host')
-
-  // Dynamic origin resolution with fallback to production restaurant domain
-  let baseUrl = ''
-  if (host && !host.includes('localhost') && !host.includes('127.0.0.1') && !host.includes('pmzaika')) {
-    baseUrl = `${proto}://${host}`
-  } else if (process.env.NEXT_PUBLIC_APP_URL && !process.env.NEXT_PUBLIC_APP_URL.includes('pmzaika')) {
-    baseUrl = process.env.NEXT_PUBLIC_APP_URL
-  } else if (process.env.APP_DOMAIN && !process.env.APP_DOMAIN.includes('pmzaika')) {
-    baseUrl = `https://${process.env.APP_DOMAIN}`
-  } else if (host && !host.includes('pmzaika')) {
-    baseUrl = `${proto}://${host}`
-  } else {
-    baseUrl = 'https://dream-z584.vercel.app'
-  }
+  // The official canonical domain for Dream Bazaar
+  // QR codes MUST always encode dream-z584.vercel.app so physical prints and scans always work
+  const customDomain = searchParams.get('domain')
+  const baseUrl = customDomain
+    ? `https://${customDomain.replace(/^https?:\/\//, '')}`
+    : (process.env.NEXT_PUBLIC_APP_URL || 'https://dream-z584.vercel.app')
 
   const targetUrl = `${baseUrl.replace(/\/$/, '')}/r/${slug}`
 
