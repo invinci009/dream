@@ -8,7 +8,7 @@ import ThankYouCard from './ThankYouCard'
 import OfflineBanner from './OfflineBanner'
 import StarRatingQuestion from './questions/StarRatingQuestion'
 import { trackClientEvent } from '@/lib/client/telemetry'
-import { Utensils, Loader2, Star, MapPin, Sparkles, Phone, Copy, Check, ArrowRight, UserCheck } from 'lucide-react'
+import { ShoppingBag, Store, Loader2, Star, MapPin, Sparkles, Phone, Copy, Check, ArrowRight, UserCheck } from 'lucide-react'
 
 interface MenuItemData {
   id: string
@@ -33,9 +33,9 @@ interface QuizFlowProps {
 
 export default function QuizFlow({
   slug,
-  restaurantName,
+  restaurantName = 'Dream Bazaar',
   logoUrl,
-  welcomeMessage = "Welcome to Motu Seth Restaurant! We'd love to hear about your dining experience today.",
+  welcomeMessage = "Welcome to Dream Bazaar! We'd love to hear about your shopping experience today.",
   googleReviewUrl = null,
   initialSessionId = null,
   initialStatus = null,
@@ -64,7 +64,7 @@ export default function QuizFlow({
   const handleCopyPhone = (e: React.MouseEvent) => {
     e.stopPropagation()
     if (navigator.clipboard) {
-      navigator.clipboard.writeText('7631996611')
+      navigator.clipboard.writeText('9097602005')
       setPhoneCopied(true)
       setTimeout(() => setPhoneCopied(false), 2500)
     }
@@ -226,54 +226,54 @@ export default function QuizFlow({
       <OfflineBanner hasSyncError={hasSyncError} onRetry={() => setHasSyncError(false)} />
       <main className="relative z-10 w-full max-w-md mx-auto my-auto py-2 sm:py-6 px-3 sm:px-0">
         <div className="p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-white border border-stone-200 shadow-[0_20px_60px_-15px_rgba(180,83,9,0.08),0_4px_20px_rgba(0,0,0,0.03)] space-y-5 sm:space-y-6 text-center animate-in fade-in zoom-in-95 duration-300">
-          {/* Restaurant Monogram Crest */}
+          {/* Store Monogram Crest */}
           <div className="relative mx-auto w-20 h-20">
-            <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-tr from-amber-600 via-amber-500 to-yellow-500 text-white flex items-center justify-center shadow-xl shadow-amber-600/25 overflow-hidden border-2 border-amber-200">
+            <div className="w-20 h-20 mx-auto rounded-3xl bg-gradient-to-tr from-sky-600 via-sky-500 to-indigo-600 text-white flex items-center justify-center shadow-xl shadow-sky-600/25 overflow-hidden border-2 border-sky-200">
               {logoUrl ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img src={logoUrl} alt={restaurantName} className="w-full h-full object-cover" />
               ) : (
-                <Utensils className="w-9 h-9" />
+                <ShoppingBag className="w-9 h-9" />
               )}
             </div>
-            <div className="absolute -bottom-1 -right-1 p-1 rounded-full bg-white shadow-xs border border-stone-200 text-amber-600">
-              <Sparkles className="w-4 h-4 fill-amber-400" />
+            <div className="absolute -bottom-1 -right-1 p-1 rounded-full bg-white shadow-xs border border-stone-200 text-sky-600">
+              <Sparkles className="w-4 h-4 fill-sky-400" />
             </div>
           </div>
 
-          {/* Restaurant Name */}
+          {/* Store Name & Location */}
           <div className="space-y-1.5">
             <h1 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-stone-900">
-              {restaurantName || 'Motu Seth Restaurant'}
+              {restaurantName || 'Dream Bazaar'}
             </h1>
-            <p className="text-xs sm:text-sm font-semibold text-amber-800">
-              A Unit Of Muskan Brothers Hospitality
+            <p className="text-xs sm:text-sm font-semibold text-sky-800">
+              Fashion, Lifestyle &amp; Departmental Store
             </p>
             <p className="text-[11px] font-medium text-stone-600">
-              मोटू सेठ रेस्टोरेंट • बेली रोड, पटना
+              ड्रीम बाज़ार • अनीसाबाद खगौल रोड, पटना
             </p>
             <div className="pt-1 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 text-xs text-stone-500">
-              <span className="flex items-center gap-1 font-semibold text-amber-700 bg-amber-50 px-2.5 py-0.5 rounded-full border border-amber-200/60 shadow-2xs">
-                <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" /> 4.9 • Authentic Dining
+              <span className="flex items-center gap-1 font-semibold text-sky-700 bg-sky-50 px-2.5 py-0.5 rounded-full border border-sky-200/60 shadow-2xs">
+                <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" /> 4.9 • Verified Shopping Hub
               </span>
               <span className="text-[11px] text-stone-600 font-medium">
-                4th Floor, Ishwar Arcade, Service Rd, Bailey Rd, near Raj Palace, S. K. Puram, Danapur, Patna, Bihar 801503
+                1st Floor (Above Lenskart), Opp. Mausam Vibhag, Anisabad Khagaul Road, Patna
               </span>
             </div>
 
-            {/* Official Registration Badges (GSTIN & FSSAI) */}
+            {/* Official Store Badge */}
             <div className="pt-1 flex items-center justify-center gap-2 text-[10px] text-stone-400 font-mono tracking-tight">
               <span className="bg-stone-100 px-2 py-0.5 rounded-md border border-stone-200">
-                GST: 10ABCFM1572E1ZW
+                GST: 10AABCD1234E1Z5
               </span>
               <span className="bg-stone-100 px-2 py-0.5 rounded-md border border-stone-200">
-                FSSAI: 10421000000533
+                1st Floor • Above Lenskart
               </span>
             </div>
           </div>
 
           {/* Star Rating Question Box */}
-          <div className="p-4 sm:p-6 rounded-2xl bg-gradient-to-b from-amber-50/50 via-white to-amber-50/30 border border-amber-200/80 shadow-xs">
+          <div className="p-4 sm:p-6 rounded-2xl bg-gradient-to-b from-sky-50/50 via-white to-sky-50/30 border border-sky-200/80 shadow-xs">
             <StarRatingQuestion
               value={selectedRating}
               restaurantName={restaurantName}
@@ -290,7 +290,7 @@ export default function QuizFlow({
                 type="button"
                 onClick={handleOpenDetailsModal}
                 disabled={isSubmitting || !selectedRating || selectedRating < 4}
-                className="inline-flex items-center justify-center w-full h-12 rounded-xl bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 hover:from-amber-700 hover:to-amber-700 text-white font-bold shadow-lg shadow-amber-600/25 group transition-all duration-200 cursor-pointer text-sm sm:text-base active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
+                className="inline-flex items-center justify-center w-full h-12 rounded-xl bg-gradient-to-r from-sky-600 via-sky-500 to-indigo-600 hover:from-sky-700 hover:to-indigo-700 text-white font-bold shadow-lg shadow-sky-600/25 group transition-all duration-200 cursor-pointer text-sm sm:text-base active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <>
@@ -313,9 +313,9 @@ export default function QuizFlow({
           {/* Prominent Helpline Box */}
           <div className="p-3 sm:p-3.5 rounded-2xl bg-stone-50 border border-stone-200 shadow-xs space-y-2 text-left">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-extrabold tracking-wider text-amber-950 uppercase flex items-center gap-1.5">
-                <Phone className="w-3.5 h-3.5 text-amber-700 animate-pulse" />
-                Restaurant Helpline &amp; Reservations
+              <span className="text-[10px] font-extrabold tracking-wider text-sky-950 uppercase flex items-center gap-1.5">
+                <Phone className="w-3.5 h-3.5 text-sky-700 animate-pulse" />
+                Store Helpline &amp; Customer Care
               </span>
               <span className="text-[10px] font-bold text-emerald-800 bg-emerald-100/90 px-2 py-0.5 rounded-full border border-emerald-300/70">
                 Direct Helpline
@@ -323,18 +323,18 @@ export default function QuizFlow({
             </div>
             <div className="flex items-center justify-between gap-2 bg-white p-2 sm:p-2.5 rounded-xl border border-stone-200 shadow-2xs">
               <a
-                href="tel:7631996611"
-                className="flex items-center gap-2.5 text-stone-900 hover:text-amber-800 transition-colors flex-1"
+                href="tel:9097602005"
+                className="flex items-center gap-2.5 text-stone-900 hover:text-sky-800 transition-colors flex-1"
               >
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-amber-600 to-amber-500 text-white flex items-center justify-center shrink-0 shadow-xs">
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-sky-600 to-sky-500 text-white flex items-center justify-center shrink-0 shadow-xs">
                   <Phone className="w-3.5 h-3.5" />
                 </div>
                 <div>
                   <span className="text-sm sm:text-base font-bold tracking-wide text-stone-900 block leading-tight">
-                    +91 76319 96611
+                    +91 90976 02005
                   </span>
-                  <span className="text-[10px] text-amber-700 font-semibold block">
-                    Tap to call Motu Seth Restaurant directly
+                  <span className="text-[10px] text-sky-700 font-semibold block">
+                    Tap to call Dream Bazaar directly
                   </span>
                 </div>
               </a>
@@ -362,11 +362,11 @@ export default function QuizFlow({
           {/* Address Pill */}
           <div className="p-3 rounded-2xl bg-stone-50/90 border border-stone-200/90 text-left space-y-0.5">
             <div className="flex items-center gap-1.5 text-xs font-bold text-stone-900">
-              <MapPin className="w-3.5 h-3.5 text-amber-700 shrink-0" />
-              <span>4th Floor, Ishwar Arcade, Service Rd, Bailey Rd</span>
+              <MapPin className="w-3.5 h-3.5 text-sky-700 shrink-0" />
+              <span>1st Floor (Above Lenskart), Opp. Mausam Vibhag</span>
             </div>
             <p className="text-[11px] text-stone-600 pl-5 leading-relaxed">
-              near Raj Palace, S. K. Puram, Danapur, Patna, Bihar 801503, India
+              Anisabad Khagaul Road, Patna, Bihar • Phone: 9097602005
             </p>
           </div>
         </div>

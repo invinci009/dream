@@ -1,6 +1,6 @@
 'use client'
 
-import { Utensils, HeartHandshake, Sparkles, Scale, Eye, BadgePercent, Check } from 'lucide-react'
+import { ShoppingBag, HeartHandshake, Sparkles, Store, MapPin, BadgePercent, Check } from 'lucide-react'
 
 interface ComplimentsQuestionProps {
   value: string[]
@@ -8,12 +8,12 @@ interface ComplimentsQuestionProps {
 }
 
 const COMPLIMENT_OPTIONS = [
-  { key: 'food', label: 'Authentic Flavour', icon: Utensils, desc: 'Rich Dum spices & tender preparations' },
-  { key: 'service', label: 'Warm Hospitality', icon: HeartHandshake, desc: 'Polite, attentive table staff' },
-  { key: 'ambience', label: 'Pleasant Ambience', icon: Sparkles, desc: 'Clean, comfortable 4th floor dining' },
-  { key: 'portion_size', label: 'Generous Portions', icon: Scale, desc: 'Filling & satisfying quantity' },
-  { key: 'presentation', label: 'Appetizing Plating', icon: Eye, desc: 'Piping hot & beautifully served' },
-  { key: 'value', label: 'Great Value for Money', icon: BadgePercent, desc: 'Superb quality at fair prices' },
+  { key: 'collection', label: 'Trendy Collections', icon: ShoppingBag, desc: 'Huge variety for men, women & kids' },
+  { key: 'service', label: 'Helpful Staff', icon: HeartHandshake, desc: 'Polite, attentive floor assistance' },
+  { key: 'ambience', label: 'Comfortable Store', icon: Store, desc: 'Clean, spacious & well-arranged' },
+  { key: 'location', label: 'Convenient Location', icon: MapPin, desc: 'Opp. Mausam Vibhag above Lenskart' },
+  { key: 'value', label: 'Great Value & Offers', icon: BadgePercent, desc: 'Pocket-friendly prices & deals' },
+  { key: 'quality', label: 'Durable Quality', icon: Sparkles, desc: 'Premium fabrics and household goods' },
 ]
 
 export default function ComplimentsQuestion({ value, onChange }: ComplimentsQuestionProps) {
@@ -38,13 +38,13 @@ export default function ComplimentsQuestion({ value, onChange }: ComplimentsQues
         </div>
         <h2 className="text-2xl font-bold tracking-tight text-stone-900 sm:text-3xl">
           What did you{' '}
-          <span className="bg-gradient-to-r from-amber-700 via-amber-600 to-yellow-600 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-sky-700 via-sky-600 to-indigo-600 bg-clip-text text-transparent">
             enjoy most
           </span>
           ?
         </h2>
         <p className="text-sm text-stone-600">
-          Select highlights that stood out during your visit to Motu Seth Restaurant
+          Select highlights that stood out during your visit to Dream Bazaar
         </p>
       </div>
 

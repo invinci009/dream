@@ -76,23 +76,23 @@ export default function OfflinePage() {
             </p>
           </div>
 
-          {/* Restaurant Quick Info Pill */}
+          {/* Store Quick Info Pill */}
           <div className="p-3.5 rounded-2xl bg-slate-950/60 border border-slate-800 text-left space-y-2">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1.5 text-xs font-bold text-amber-400">
+              <div className="flex items-center gap-1.5 text-xs font-bold text-sky-400">
                 <Sparkles className="w-3.5 h-3.5" />
-                Motu Seth Restaurant, Patna
+                Dream Bazaar, Patna
               </div>
               <a
-                href="tel:7631996611"
-                className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-[11px] font-bold text-amber-300 hover:bg-amber-500/25 transition-colors"
+                href="tel:9097602005"
+                className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-sky-500/15 border border-sky-500/30 text-[11px] font-bold text-sky-300 hover:bg-sky-500/25 transition-colors"
               >
-                <Phone className="w-3 h-3 text-amber-400" />
-                <span>Call: 7631996611</span>
+                <Phone className="w-3 h-3 text-sky-400" />
+                <span>Call: 9097602005</span>
               </a>
             </div>
             <p className="text-[11px] text-slate-400 leading-tight">
-              4th Floor, Ishwar Arcade, Service Rd, Bailey Rd, near Raj Palace, S. K. Puram, Danapur, Patna, Bihar 801503, India
+              1st Floor (Above Lenskart), Opposite Mausam Vibhag, Anisabad Khagaul Road, Patna, Bihar
             </p>
           </div>
 

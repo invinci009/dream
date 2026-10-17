@@ -6,7 +6,7 @@ import { getFirestoreDb } from './admin'
 const ADMIN_COOKIE_NAME = 'rp_admin_session'
 const getSecret = () =>
   new TextEncoder().encode(
-    process.env.SESSION_COOKIE_SECRET || 'residence-inn-patna-secret-key-32-chars-jwt!'
+    process.env.SESSION_COOKIE_SECRET || 'dream-bazaar-patna-secret-key-32-chars-jwt!'
   )
 
 export interface AdminSessionUser {
@@ -40,9 +40,9 @@ export async function verifyAdminToken(token: string): Promise<AdminSessionUser 
     const { payload } = await jwtVerify(token, getSecret(), { algorithms: ['HS256'] })
     return {
       id: String(payload.sub),
-      email: String(payload.email || 'admin@motuseth.com'),
+      email: String(payload.email || 'admin@dreambazaar.com'),
       role: String(payload.role || 'owner'),
-      businessId: String(payload.businessId || 'motu-seth'),
+      businessId: String(payload.businessId || 'dream-bazaar'),
       username: payload.username ? String(payload.username) : undefined,
     }
   } catch {
@@ -80,101 +80,87 @@ export async function getAdminSession(): Promise<AdminSessionUser | null> {
 
 /**
  * Authenticates user credentials against Firestore `users` collection.
- * Supports email or username alias (e.g. admin, owner, admin@residency.com)
+ * Supports email or username alias (e.g. admin, owner, dream, dreambazaar)
+ * Resilient to Firestore errors.
  */
 export async function authenticateAdminUser(
   identifier: string,
   password: string
 ): Promise<AdminSessionUser | null> {
-  const db = getFirestoreDb()
   const cleanId = identifier.trim().toLowerCase()
   const hashed = hashAdminPassword(password)
-
-  // Direct check for known default master password
   const isMasterPassword = password === 'password123'
 
-  // Query by email
-  const emailSnap = await db
-    .collection('users')
-    .where('email', '==', cleanId)
-    .limit(1)
-    .get()
+  const isValidAlias =
+    cleanId === 'admin@dreambazaar.com' ||
+    cleanId === 'owner@dreambazaar.com' ||
+    cleanId === 'admin' ||
+    cleanId === 'owner' ||
+    cleanId === 'dream' ||
+    cleanId === 'dreambazaar' ||
+    cleanId === 'admin@motuseth.com' ||
+    cleanId === 'motu'
 
-  let userDoc = !emailSnap.empty ? emailSnap.docs[0] : null
+  try {
+    const db = getFirestoreDb()
 
-  // If not found by email, query by username
-  if (!userDoc) {
-    const userSnap = await db
+    // Query by email
+    const emailSnap = await db
       .collection('users')
-      .where('username', '==', cleanId)
+      .where('email', '==', cleanId)
       .limit(1)
       .get()
-    if (!userSnap.empty) {
-      userDoc = userSnap.docs[0]
-    }
-  }
 
-  // If alias used like 'admin' or 'owner' or 'motu' or 'residency'
-  if (!userDoc && (cleanId === 'admin' || cleanId === 'owner' || cleanId === 'motu' || cleanId === 'residency')) {
-    const fallbackSnap = await db
-      .collection('users')
-      .where('email', '==', 'admin@motuseth.com')
-      .limit(1)
-      .get()
-    if (!fallbackSnap.empty) {
-      userDoc = fallbackSnap.docs[0]
-    } else {
-      const legacySnap = await db
+    let userDoc = !emailSnap.empty ? emailSnap.docs[0] : null
+
+    // If not found by email, query by username
+    if (!userDoc) {
+      const userSnap = await db
         .collection('users')
-        .where('email', '==', 'admin@residency.com')
+        .where('username', '==', cleanId)
         .limit(1)
         .get()
-      if (!legacySnap.empty) {
-        userDoc = legacySnap.docs[0]
+      if (!userSnap.empty) {
+        userDoc = userSnap.docs[0]
       }
     }
-  }
 
-  if (!userDoc) {
-    // If not found in users collection yet, but matches the official Motu Seth Restaurant admin credentials
-    if (
-      (cleanId === 'admin@motuseth.com' ||
-        cleanId === 'admin' ||
-        cleanId === 'owner' ||
-        cleanId === 'motu' ||
-        cleanId === 'admin@residency.com') &&
-      isMasterPassword
-    ) {
-      // Auto-provision user doc in Firestore
-      const newUser = {
-        id: 'admin-motuseth',
-        email: 'admin@motuseth.com',
-        username: 'admin',
-        password_hash: hashed,
-        role: 'owner',
-        business_id: 'motu-seth',
-        created_at: new Date().toISOString(),
-      }
-      await db.collection('users').doc(newUser.id).set(newUser)
-      return {
-        id: newUser.id,
-        email: newUser.email,
-        role: newUser.role,
-        businessId: newUser.business_id,
-        username: newUser.username,
+    // If alias used like 'admin' or 'owner' or 'dream'
+    if (!userDoc && isValidAlias) {
+      const fallbackSnap = await db
+        .collection('users')
+        .where('email', 'in', ['admin@dreambazaar.com', 'admin@motuseth.com'])
+        .limit(1)
+        .get()
+      if (!fallbackSnap.empty) {
+        userDoc = fallbackSnap.docs[0]
       }
     }
-    return null
+
+    if (userDoc) {
+      const data = userDoc.data()
+      if (data.password_hash === hashed || (isMasterPassword && password === 'password123')) {
+        return {
+          id: userDoc.id,
+          email: data.email || 'admin@dreambazaar.com',
+          role: data.role || 'owner',
+          businessId: data.business_id || 'dream-bazaar',
+          username: data.username,
+        }
+      }
+    }
+  } catch (err) {
+    console.warn('Firestore authenticateAdminUser fallback:', (err as any)?.message || err)
   }
 
-  const data = userDoc.data()
-  if (data.password_hash === hashed || (isMasterPassword && password === 'password123')) {
+  // Built-in fallback if Firestore API is disabled or not seeded yet
+  if (isValidAlias && (isMasterPassword || password === 'password123')) {
     return {
-      id: userDoc.id,
-      email: data.email || 'admin@motuseth.com',
-      role: data.role || 'owner',
-      businessId: data.business_id || 'motu-seth',
-      username: data.username,
+      id: 'admin-dreambazaar',
+      email: 'admin@dreambazaar.com',
+      role: 'owner',
+      businessId: 'dream-bazaar',
+      username: 'admin',
     }
   }
 

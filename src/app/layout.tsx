@@ -9,15 +9,15 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: {
-    default: 'ReviewPulse — Restaurant Feedback & Authentic Reviews',
-    template: '%s | ReviewPulse',
+    default: 'Dream Bazaar — Customer Feedback & Authentic Reviews',
+    template: '%s | Dream Bazaar',
   },
-  description: 'QR-based customer feedback platform for Motu Seth Restaurant with AI-assisted review drafting',
-  applicationName: 'Motu Seth Restaurant',
+  description: 'QR-based customer feedback platform for Dream Bazaar (Anisabad Khagaul Road, Patna) with AI-assisted review drafting',
+  applicationName: 'Dream Bazaar',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'black-translucent',
-    title: 'Motu Seth',
+    title: 'Dream Bazaar',
   },
   formatDetection: {
     telephone: false,

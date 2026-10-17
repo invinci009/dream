@@ -21,7 +21,7 @@ const EMOJI_OPTIONS = [
 export default function EmojiRatingQuestion({
   value,
   onChange,
-  restaurantName = 'Motu Seth Restaurant',
+  restaurantName = 'Dream Bazaar',
 }: EmojiRatingQuestionProps) {
   const [showLowRatingModal, setShowLowRatingModal] = useState(false)
   const [attemptedRating, setAttemptedRating] = useState<number>(3)

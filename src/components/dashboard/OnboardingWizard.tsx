@@ -11,12 +11,12 @@ import { Utensils, ArrowRight, Loader2, Sparkles, ShieldCheck, CheckCircle2 } fr
 export default function OnboardingWizard() {
   const router = useRouter()
   const [step, setStep] = useState(1)
-  const [name, setName] = useState('Motu Seth Restaurant')
-  const [location, setLocation] = useState('Ishwari Arcade 4th Floor Near Raj Palace, Bailey Road, Patna - 801503')
-  const [phone, setPhone] = useState('7631996611')
+  const [name, setName] = useState('Dream Bazaar')
+  const [location, setLocation] = useState('1st Floor (Above Lenskart), Opposite Mausam Vibhag, Anisabad Khagaul Road, Patna, Bihar')
+  const [phone, setPhone] = useState('9097602005')
   const [googleReviewUrl, setGoogleReviewUrl] = useState('')
   const [welcomeMessage, setWelcomeMessage] = useState(
-    'Welcome to Motu Seth Restaurant! Share your honest dining experience with us in 30 seconds. For helpline & reservations call 7631996611.'
+    'Welcome to Dream Bazaar! Share your honest shopping experience with us in 30 seconds. For helpline call 9097602005.'
   )
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)

@@ -87,24 +87,24 @@ export default function MenuTab({ menuItems, onRefresh }: MenuTabProps) {
   return (
     <div className="space-y-6 animate-in fade-in duration-300 max-w-4xl">
       <div>
-        <h2 className="text-xl font-bold text-white tracking-tight">Menu &amp; Dishes (Quiz Q5)</h2>
+        <h2 className="text-xl font-bold text-white tracking-tight">Store Catalog &amp; Departments</h2>
         <p className="text-xs text-slate-400 mt-0.5">
-          Signature dishes and menu items listed here appear as selectable chips in Question 5 of the diner survey
+          Featured collections and store departments listed here appear as selectable options for customers
         </p>
       </div>
 
-      {/* Add New Dish Card */}
+      {/* Add New Item Card */}
       <Card className="border-slate-800 bg-slate-900/60 backdrop-blur-xl">
         <CardHeader className="pb-3">
-          <CardTitle className="text-sm text-white">Add Dish or Specialty</CardTitle>
+          <CardTitle className="text-sm text-white">Add Department or Product Collection</CardTitle>
           <CardDescription className="text-xs text-slate-400">
-            Biryanis, handi specials, tandoori starters, curries, breads, or desserts
+            Men’s wear, ethnic wear, kids apparel, footwear, home furnishings, or daily essentials
           </CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleAddDish} className="flex gap-3">
             <Input
-              placeholder="e.g. Special Chicken Dum Biryani, Mutton Handi, Paneer Tikka, Butter Naan..."
+              placeholder="e.g. Men's Formal & Casual, Women's Sarees & Kurtis, Kids Apparel, Footwear, Home Linen..."
               value={dishName}
               onChange={(e) => setDishName(e.target.value)}
               className="bg-slate-950/60 border-slate-800 text-white h-10 text-xs flex-1"
@@ -112,24 +112,24 @@ export default function MenuTab({ menuItems, onRefresh }: MenuTabProps) {
             <Button
               type="submit"
               disabled={isAdding || !dishName.trim()}
-              className="bg-gradient-to-r from-amber-500 to-amber-600 text-white text-xs font-semibold h-10 px-5 rounded-xl shadow-md shadow-amber-500/20 cursor-pointer shrink-0"
+              className="bg-gradient-to-r from-sky-500 to-indigo-600 text-white text-xs font-semibold h-10 px-5 rounded-xl shadow-md shadow-sky-500/20 cursor-pointer shrink-0"
             >
               {isAdding ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Plus className="w-4 h-4 mr-1" />}
-              Add Dish
+              Add Item
             </Button>
           </form>
           {error && <p className="text-xs text-rose-400 mt-2">{error}</p>}
         </CardContent>
       </Card>
 
-      {/* Dishes List */}
+      {/* Items List */}
       <Card className="border-slate-800 bg-slate-900/60 backdrop-blur-xl">
         <CardHeader className="pb-3 border-b border-slate-800">
-          <CardTitle className="text-sm text-white">Active Menu Items ({menuItems.length})</CardTitle>
+          <CardTitle className="text-sm text-white">Active Catalog Items ({menuItems.length})</CardTitle>
           <CardDescription className="text-xs text-slate-400">
             {menuItems.length === 0
-              ? 'Currently 0 dishes added — Question 5 will be automatically hidden from customer quizzes until you add at least 1 dish.'
-              : 'Diners can pick these items during Question 5.'}
+              ? 'Currently 0 items added — Question will be automatically hidden from customer surveys until you add at least 1 item.'
+              : 'Shoppers can pick these sections during the survey.'}
           </CardDescription>
         </CardHeader>
         <CardContent className="pt-4">

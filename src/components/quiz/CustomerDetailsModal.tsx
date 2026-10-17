@@ -22,7 +22,7 @@ interface CustomerDetailsModalProps {
 
 export default function CustomerDetailsModal({
   isOpen,
-  restaurantName = 'Motu Seth Restaurant',
+  restaurantName = 'Dream Bazaar',
   isSubmitting,
   onSubmit,
 }: CustomerDetailsModalProps) {

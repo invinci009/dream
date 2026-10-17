@@ -18,7 +18,7 @@ import {
   ArrowRight,
   RefreshCw,
   Mail,
-  Utensils,
+  ShoppingBag,
   Lock,
 } from 'lucide-react'
 
@@ -154,10 +154,10 @@ function ResetPasswordForm() {
       <CardHeader className="space-y-1.5 pb-3">
         <div className="flex items-center gap-2 mb-1">
           <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-amber-600 to-amber-500 text-white flex items-center justify-center font-bold text-xs shadow-md shadow-amber-500/20">
-            <Utensils className="w-4 h-4" />
+            <ShoppingBag className="w-4 h-4" />
           </div>
           <span className="text-xs font-bold text-amber-400 uppercase tracking-wider">
-            Motu Seth Admin Security
+            Dream Bazaar Store Security
           </span>
         </div>
         <CardTitle className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
@@ -201,12 +201,12 @@ function ResetPasswordForm() {
             <div className="space-y-1.5">
               <Label htmlFor="resend-user" className="text-xs font-semibold text-slate-300 flex items-center gap-1.5">
                 <Mail className="w-3.5 h-3.5 text-amber-500" />
-                Restaurant Username or Email
+                Store Username or Email
               </Label>
               <Input
                 id="resend-user"
                 type="text"
-                placeholder="admin or admin@motuseth.com"
+                placeholder="admin or admin@dreambazaar.com"
                 value={resendUsername}
                 onChange={(e) => setResendUsername(e.target.value)}
                 required
@@ -368,7 +368,7 @@ function ResetPasswordForm() {
         >
           &larr; Back to Login
         </Link>
-        <span className="text-slate-600 text-[10px]">Motu Seth Restaurant</span>
+        <span className="text-slate-600 text-[10px]">Dream Bazaar</span>
       </CardFooter>
     </Card>
   )

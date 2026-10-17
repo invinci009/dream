@@ -1,13 +1,19 @@
 /**
- * Motu Seth Restaurant Authentication & Alias Helpers
+ * Dream Bazaar Authentication & Alias Helpers
  */
 
-export const MOTU_SETH_PRIMARY_EMAIL = 'admin@motuseth.com'
-export const RESIDENCE_INN_PRIMARY_EMAIL = 'admin@motuseth.com'
+export const DREAM_BAZAAR_PRIMARY_EMAIL = 'admin@dreambazaar.com'
+export const MOTU_SETH_PRIMARY_EMAIL = 'admin@dreambazaar.com'
+export const RESIDENCE_INN_PRIMARY_EMAIL = 'admin@dreambazaar.com'
 
-const MOTU_ALIASES = new Set([
+const DREAM_ALIASES = new Set([
   'admin',
   'owner',
+  'dream',
+  'dreambazaar',
+  'dream-bazaar',
+  'admin@dreambazaar.com',
+  'owner@dreambazaar.com',
   'motu',
   'motuseth',
   'motu-seth',
@@ -16,16 +22,11 @@ const MOTU_ALIASES = new Set([
   'residency',
   'admin@residency.com',
   'owner@residency.com',
-  'residence',
-  'residenceinn',
-  'residence-inn',
-  'admin@residenceinn.com',
-  'owner@residenceinn.com',
 ])
 
 /**
- * Resolves any restaurant administrator alias or custom email
- * to the registered Motu Seth Restaurant admin email.
+ * Resolves any administrator alias or custom email
+ * to the registered Dream Bazaar admin email.
  */
 export function resolveZaikaEmail(input?: string | null): string | null {
   if (!input || typeof input !== 'string') return null
@@ -33,10 +34,9 @@ export function resolveZaikaEmail(input?: string | null): string | null {
   if (!trimmed) return null
 
   const lower = trimmed.toLowerCase()
-  if (MOTU_ALIASES.has(lower)) {
-    return MOTU_SETH_PRIMARY_EMAIL
+  if (DREAM_ALIASES.has(lower)) {
+    return DREAM_BAZAAR_PRIMARY_EMAIL
   }
 
   return trimmed
 }
-

@@ -132,7 +132,7 @@ export default function OverviewTab({ analytics }: OverviewTabProps) {
             <span className="text-xs font-semibold text-blue-400">
               {Math.round(googleClickRate * 100)}% Hand-off Rate
             </span>
-            <span className="text-[11px] text-slate-400 ml-1.5">distinct diners</span>
+            <span className="text-[11px] text-slate-400 ml-1.5">distinct shoppers</span>
           </CardContent>
         </Card>
       </div>

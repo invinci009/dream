@@ -28,14 +28,14 @@ export default async function PublicQuizPage({ params, searchParams }: PublicQui
           </div>
           <h1 className="text-xl font-bold text-stone-900">QR Code Not Found</h1>
           <p className="text-sm text-stone-500">
-            This QR code is not valid or has been removed. Please ask your server at Motu Seth Restaurant for assistance.
+            This QR code is not valid or has been removed. Please ask a store assistant at Dream Bazaar for assistance.
           </p>
           <div className="pt-2">
             <a
-              href="tel:7631996611"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-xs font-semibold text-amber-900 hover:bg-amber-100 transition-colors"
+              href="tel:9097602005"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-xs font-semibold text-sky-900 hover:bg-sky-100 transition-colors"
             >
-              📞 Call: +91 76319 96611
+              📞 Call: +91 90976 02005
             </a>
           </div>
         </div>
@@ -53,14 +53,14 @@ export default async function PublicQuizPage({ params, searchParams }: PublicQui
           </div>
           <h1 className="text-xl font-bold text-stone-900">Survey Temporarily Inactive</h1>
           <p className="text-sm text-stone-500">
-            This feedback code is currently paused by Motu Seth Restaurant. Please check with your server.
+            This feedback code is currently paused by Dream Bazaar. Please check with customer care.
           </p>
           <div className="pt-2">
             <a
-              href="tel:7631996611"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-xs font-semibold text-amber-900 hover:bg-amber-100 transition-colors"
+              href="tel:9097602005"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-sky-50 border border-sky-200 text-xs font-semibold text-sky-900 hover:bg-sky-100 transition-colors"
             >
-              📞 Call: +91 76319 96611
+              📞 Call: +91 90976 02005
             </a>
           </div>
         </div>
@@ -71,7 +71,7 @@ export default async function PublicQuizPage({ params, searchParams }: PublicQui
   const googleReviewUrl =
     campaign.google_review_url_override ||
     business?.google_review_url ||
-    'https://search.google.com/local/writereview?placeid=ChIJA-ShB09W7TkRdmS5DCofbiw'
+    'https://search.google.com/local/writereview?placeid=ChIJfZJgPwBX7TkRU469KMlU5nM'
 
   // 2. Fetch menu items for the ordered items step
   const menuItems = await getMenuItems(campaign.business_id)
@@ -104,23 +104,23 @@ export default async function PublicQuizPage({ params, searchParams }: PublicQui
     }
   }
 
-  const restaurantName = business?.name ?? 'Motu Seth Restaurant'
+  const restaurantName = business?.name ?? 'Dream Bazaar'
   const welcomeText =
     (business?.welcome_message?.en as string | undefined) ??
-    'Welcome to Motu Seth Restaurant! Share your honest dining experience with us in 30 seconds. For helpline & reservations call 7631996611.'
+    'Welcome to Dream Bazaar! Share your honest shopping experience with us in 30 seconds. For helpline call 9097602005.'
 
   return (
-    <div className="min-h-screen min-h-[100dvh] min-h-safe-screen bg-[#faf8f5] bg-gradient-to-b from-[#fdfbf7] via-[#fbf7ee] to-[#f6efe0] text-stone-900 flex flex-col justify-between px-3 sm:px-6 pt-safe pb-safe py-3 sm:py-6 selection:bg-amber-600 selection:text-white relative overflow-x-hidden font-sans">
-      {/* Ambient warm gold & saffron glows */}
-      <div className="fixed -top-12 left-1/2 -translate-x-1/2 w-80 h-80 bg-amber-300/25 rounded-full blur-3xl pointer-events-none" />
-      <div className="fixed bottom-0 right-1/4 w-80 h-80 bg-yellow-300/20 rounded-full blur-3xl pointer-events-none" />
+    <div className="min-h-screen min-h-[100dvh] min-h-safe-screen bg-[#faf8f5] bg-gradient-to-b from-[#fdfbf7] via-[#fbf7ee] to-[#f6efe0] text-stone-900 flex flex-col justify-between px-3 sm:px-6 pt-safe pb-safe py-3 sm:py-6 selection:bg-sky-600 selection:text-white relative overflow-x-hidden font-sans">
+      {/* Ambient warm lighting */}
+      <div className="fixed -top-12 left-1/2 -translate-x-1/2 w-80 h-80 bg-sky-300/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="fixed bottom-0 right-1/4 w-80 h-80 bg-indigo-300/15 rounded-full blur-3xl pointer-events-none" />
 
       {/* Header Badge */}
       <header className="relative z-10 flex items-center justify-center pt-1 sm:pt-2">
         <div className="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1 sm:py-1.5 rounded-full bg-white/95 border border-stone-200/90 shadow-xs backdrop-blur-md">
-          <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-amber-600 shrink-0" />
-          <span className="text-[10px] sm:text-[11px] font-bold text-amber-950 tracking-wide">
-            {restaurantName} • Diner Feedback
+          <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-sky-600 shrink-0" />
+          <span className="text-[10px] sm:text-[11px] font-bold text-sky-950 tracking-wide">
+            {restaurantName} • Customer Feedback
           </span>
         </div>
       </header>

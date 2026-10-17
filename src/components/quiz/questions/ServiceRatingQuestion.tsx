@@ -81,7 +81,7 @@ const SERVICE_OPTIONS = [
 export default function ServiceRatingQuestion({
   value,
   onChange,
-  restaurantName = 'Motu Seth Restaurant',
+  restaurantName = 'Dream Bazaar',
 }: ServiceRatingQuestionProps) {
   const [showLowRatingModal, setShowLowRatingModal] = useState(false)
   const [attemptedRating, setAttemptedRating] = useState<number>(3)

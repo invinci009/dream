@@ -12,11 +12,11 @@ interface PrivateFeedbackModalProps {
 }
 
 const CATEGORIES = [
-  { key: 'food', label: 'Food quality & taste' },
-  { key: 'service', label: 'Hospitality / Service' },
-  { key: 'waiting_time', label: 'Waiting time' },
-  { key: 'cleanliness', label: 'Cleanliness & Ambience' },
-  { key: 'billing', label: 'Billing / Price' },
+  { key: 'collection', label: 'Collection & Quality' },
+  { key: 'pricing', label: 'Pricing & Offers' },
+  { key: 'service', label: 'Staff Assistance' },
+  { key: 'billing', label: 'Billing / Checkout' },
+  { key: 'cleanliness', label: 'Store Cleanliness & Layout' },
   { key: 'other', label: 'Other' },
 ]
 
@@ -100,17 +100,17 @@ export default function PrivateFeedbackModal({
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-1">
-              <h2 className="text-lg font-bold text-stone-900">Direct Manager Feedback</h2>
+              <h2 className="text-lg font-bold text-stone-900">Direct Management Feedback</h2>
               <p className="text-xs text-stone-500">
-                This message goes directly to the restaurant leadership, not Google.
+                This message goes directly to Dream Bazaar management, not Google.
               </p>
-              <div className="flex items-center justify-between p-2 rounded-xl bg-amber-50 border border-amber-200/80 text-[11px] text-amber-900 mt-2">
+              <div className="flex items-center justify-between p-2 rounded-xl bg-sky-50 border border-sky-200/80 text-[11px] text-sky-900 mt-2">
                 <span className="flex items-center gap-1.5 font-medium">
-                  <Phone className="w-3.5 h-3.5 text-amber-700" />
-                  Urgent? Call manager directly:
+                  <Phone className="w-3.5 h-3.5 text-sky-700" />
+                  Urgent? Call store directly:
                 </span>
-                <a href="tel:7631996611" className="font-bold underline hover:text-amber-700">
-                  +91 76319 96611
+                <a href="tel:9097602005" className="font-bold underline hover:text-sky-700">
+                  +91 90976 02005
                 </a>
               </div>
             </div>

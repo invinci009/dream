@@ -2,16 +2,16 @@ import type { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Motu Seth Restaurant — Feedback & Reviews',
-    short_name: 'Motu Seth',
-    description: 'Instant QR customer feedback, smart AI reviews & live dining dashboard for Motu Seth Restaurant, Bailey Road, Patna',
+    name: 'Dream Bazaar — Customer Feedback & Reviews',
+    short_name: 'Dream Bazaar',
+    description: 'Instant QR customer feedback, smart AI reviews & live store dashboard for Dream Bazaar, Anisabad Khagaul Road, Patna',
     start_url: '/',
     scope: '/',
     display: 'standalone',
     orientation: 'portrait-primary',
     background_color: '#020617',
     theme_color: '#0f172a',
-    categories: ['food', 'business', 'productivity', 'lifestyle'],
+    categories: ['shopping', 'business', 'lifestyle'],
     lang: 'en',
     dir: 'ltr',
     prefer_related_applications: false,
@@ -42,21 +42,21 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
     shortcuts: [
       {
-        name: 'Diner Feedback Survey',
+        name: 'Customer Feedback Survey',
         short_name: 'Feedback',
-        description: 'Open customer survey experience for Motu Seth Restaurant',
-        url: '/r/motu-seth',
+        description: 'Open customer survey experience for Dream Bazaar',
+        url: '/r/dream-bazaar',
         icons: [{ src: '/icons/icon-192x192.png', sizes: '192x192' }],
       },
       {
-        name: 'Restaurant Dashboard',
+        name: 'Store Dashboard',
         short_name: 'Dashboard',
-        description: 'View live restaurant feedback, stats & customer contacts',
+        description: 'View live customer feedback, stats & customer contacts',
         url: '/dashboard',
         icons: [{ src: '/icons/icon-192x192.png', sizes: '192x192' }],
       },
       {
-        name: 'Guest Responses',
+        name: 'Customer Responses',
         short_name: 'Responses',
         description: 'See latest customer ratings and drafts',
         url: '/dashboard?tab=responses',

@@ -13,113 +13,110 @@ export interface GenerationOptions {
 }
 
 /**
- * Rich, diverse sentence banks for Motu Seth Restaurant dining experiences.
+ * Rich, diverse sentence banks for Dream Bazaar shopping experiences.
  * Thousands of permutations ensure no two customer reviews are identical.
  */
 const OVERALL_POSITIVE = [
-  'Had a truly wonderful dining experience at Motu Seth Restaurant.',
-  'Really enjoyed our visit to Motu Seth Restaurant on Bailey Road in Patna.',
-  'Had a fantastic meal here today; the food was fresh and incredibly flavorful.',
-  'One of the finest restaurant experiences on Bailey Road in Patna.',
-  'Visited Motu Seth Restaurant today and every single dish exceeded our expectations.',
-  'From seating to billing, our entire dining experience was completely seamless.',
-  'A very pleasant, comfortable, and well-managed family dining spot.',
-  'Delighted with the rich flavors, cozy ambiance, and warm hospitality.',
-  'Such a satisfying and flavorful culinary experience throughout our visit.',
-  'One of the tastiest and most enjoyable meals I have had recently in Patna.',
-  'Really appreciated the welcoming dining atmosphere and courteous service.',
-  'A delightful restaurant with authentic flavors and generous portion sizes.',
-  'Thoroughly enjoyed our meal; everything was delicious, neat, and freshly made.',
-  'A top-notch dining spot in Patna that felt genuinely hospitable and satisfying.',
-  'Had a memorable lunch here and thoroughly enjoyed the culinary hospitality.',
-  'Great choice for lunch and dinner on Bailey Road; clean surroundings and great food.',
-  'The restaurant provided a warm, welcoming, and exceptionally tasty experience.',
-  'A wonderful dining visit with first-rate hospitality and authentic recipes.',
+  'Had a truly wonderful clothes shopping experience at Dream Bazaar clothing store in Anisabad.',
+  'Really enjoyed our visit to Dream Bazaar on Khagaul Road; their apparel collection is exceptional.',
+  'Had a fantastic shopping trip here today; huge variety of outfits, trendy designs, and honest prices.',
+  'One of the finest fashion and clothing showrooms on Khagaul Road in Patna.',
+  'Visited Dream Bazaar today and their latest ethnic and western wear collection exceeded our expectations.',
+  'From trying on clothes in spacious trial rooms to checkout, our entire visit was completely seamless.',
+  'A very spacious, well-lit, and beautifully arranged clothing showroom for the whole family.',
+  'Delighted with the affordable garment prices, massive designer collection, and courteous sales staff.',
+  'Such a satisfying and budget-friendly apparel shopping experience throughout our visit.',
+  'One of the best clothing stores I have visited recently in Patna for wedding and festive outfits.',
+  'Really appreciated the clean air-conditioned showroom atmosphere and helpful sales assistance.',
+  'A delightful store with the latest fashion collections and genuine value for money.',
+  'Thoroughly enjoyed our visit; everything was neatly hung, well-organized by size, and reasonably priced.',
+  'A top-notch fashion hub in Anisabad that offers exceptional fabric quality for money.',
+  'Had a memorable shopping visit and picked up wonderful outfits for everyone in the family.',
+  'Dream Bazaar provided a comfortable, hassle-free, and enjoyable clothing shopping trip.',
+  'A wonderful clothing destination with first-rate customer service and authentic designer variety.',
 ]
 
 const OVERALL_NEUTRAL = [
-  'Visited Motu Seth Restaurant today for a meal.',
-  'A decent and standard restaurant dining experience overall.',
-  'Had lunch here today; the overall experience was satisfactory.',
-  'Overall, a fairly normal and quiet dining visit on Bailey Road.',
-  'A standard meal in Patna with acceptable taste and service.',
+  'Visited Dream Bazaar today for some clothes shopping.',
+  'A decent and standard clothing showroom experience overall.',
+  'Shopped here today; the clothing collection and service were satisfactory.',
+  'Overall, a fairly convenient and quiet shopping visit in Anisabad.',
+  'A standard fashion store in Patna with acceptable collection and pricing.',
 ]
 
 const OVERALL_NEGATIVE = [
-  'Dined here today, though the overall visit fell short of expectations.',
-  'Visited this restaurant, though certain aspects of the dining could be improved.',
-  'Our dining experience here did not fully meet our initial expectations.',
-  'The meal was average and several details needed better management.',
+  'Shopped for clothes here today, though the selection fell short of expectations.',
+  'Visited this store, though certain garment racks could be better organized.',
+  'Our apparel shopping experience here did not fully meet our initial expectations.',
+  'The showroom was crowded and several sizes needed better replenishment.',
 ]
 
-const FOOD_POSITIVE = [
-  'The biryani and curries were bursting with authentic spices and rich aroma.',
-  'Loved the succulent kebabs, tender meat, and fresh buttery gravies.',
-  'The paneer starters and curries were fresh, smoky, and seasoned to perfection.',
-  'Every dish was served piping hot, flavorful, and made with top-quality ingredients.',
-  'The handi specials and butter chicken were cooked to absolute perfection.',
-  'The tandoori naans were crisp, soft, and paired wonderfully with the gravies.',
-  'Impressed by the rich Dum preparation and the balanced aroma of the spices.',
-  'The food had authentic Indian character and generous, satisfying portions.',
-  'Tasted amazing from the very first bite; the spices and marinades were spot on.',
-  'Freshly cooked dishes with authentic flavors that made our meal truly memorable.',
-  'Rich gravies, tender meat, and fragrant rice that tasted authentic and delightful.',
-  'The starters were crispy and juicy, and the main course curries were superb.',
+const QUALITY_POSITIVE = [
+  'The fabric quality, fine stitching, and variety of colors in ethnic and casual wear are impressive.',
+  'Loved their designer sarees, gorgeous lehengas, and stylish party-wear kurtis.',
+  'The menswear section has an amazing range of crisp formal shirts, trousers, and festive kurtas.',
+  'The kids clothing collection had adorable, comfortable designs with soft breathable fabrics.',
+  'Every clothing rack had fresh arrivals with trendy cuts, modern fittings, and pocket-friendly rates.',
+  'High quality fabric and materials with plenty of size options and clean trial rooms.',
+  'Loved the festive ethnic wear and daily casual outfits; excellent craftsmanship and finishing.',
+  'Huge assortment of readymade garments and unstitched dress materials that made our shopping worthwhile.',
+  'Impressed by the vast fashion selection across all age groups and wedding needs.',
+  'The garments had trendy designs, durable materials, and very honest pricing.',
 ]
 
-const FOOD_NEUTRAL = [
-  'The food was acceptable and met standard restaurant expectations.',
-  'The dishes were decent and reasonably flavorful for a quick meal.',
-  'The food was fairly standard and served hot.',
+const QUALITY_NEUTRAL = [
+  'The apparel variety was acceptable and met standard expectations.',
+  'The clothing items were decent and reasonably priced for everyday wear.',
+  'The garment collection was fairly standard and met our basic shopping list.',
 ]
 
-const FOOD_NEGATIVE = [
-  'The food seasoning and flavor could have been better.',
-  'The dishes fell short of our taste expectations today.',
-  'The food was average and lacked the punch of fresh spices.',
+const QUALITY_NEGATIVE = [
+  'The variety in some clothing sizes and color options could have been better.',
+  'The apparel collection fell short of our fashion expectations today.',
+  'Stock was limited in certain size sections today.',
 ]
 
 const SERVICE_POSITIVE = [
-  'The staff was remarkably polite, courteous, and attentive to our table.',
-  'Hospitality was warm with prompt order taking and swift table service.',
-  'The restaurant team was courteous and attentive to all our requests.',
-  'Remarkable service from the staff throughout our entire meal.',
-  'Staff members were always smiling, respectful, and eager to assist us.',
-  'Orders were served hot without long waiting times.',
-  'The hospitality was genuinely warm and the team made us feel right at home.',
-  'Attentive service with polite recommendations from the restaurant team.',
-  'Quick turnaround time and prompt attention to our table needs.',
-  'From greeting to final billing, the staff was polite and accommodating.',
+  'The sales staff was remarkably polite, patient, and helped us try multiple sizes without rush.',
+  'Customer service was warm with quick assistance in finding the right fittings and matching outfits.',
+  'The sales team was courteous and guided us nicely through the newest ethnic wear arrivals.',
+  'Remarkable assistance from the floor team; they patiently showed us numerous saree and lehenga designs.',
+  'Staff members were always smiling, respectful, and eager to assist with styling and sizing.',
+  'Quick billing at the counter without long waiting queues.',
+  'The hospitality was genuinely warm and the team made clothes shopping very relaxing.',
+  'Attentive sales assistance with polite recommendations from the showroom staff.',
+  'Trial rooms were clean and well-maintained with helpful staff right on hand.',
+  'From the entrance greeting to final billing, the team was polite and accommodating.',
 ]
 
 const SERVICE_NEUTRAL = [
-  'The staff and table service were standard and adequate.',
-  'Food service was handled without any major delay.',
-  'The service was normal and straightforward.',
+  'The staff and checkout counter were standard and adequate.',
+  'Fitting room assistance and checkout were handled without any major delay.',
+  'The staff service was normal, straightforward, and helpful.',
 ]
 
 const SERVICE_NEGATIVE = [
-  'Staff attentiveness and table service were quite slow.',
-  'Service could be more welcoming and proactive.',
-  'Table assistance took longer than expected today.',
+  'Billing counter speed was a bit slow during rush hours.',
+  'Floor assistance for finding clothing sizes could be more proactive.',
+  'Finding staff for trial room assistance took a bit longer today.',
 ]
 
 const LOCATION_POSITIVE = [
-  'Its prime location at Ishwari Arcade on Bailey Road makes visiting very convenient.',
-  'Located right on Bailey Road near Raj Palace with easy access and good parking.',
-  'The 4th floor dining area offers a cozy, clean ambiance for family and friends.',
-  'A very convenient location on Bailey Road that makes family dining hassle-free.',
+  'Its prime location on the 1st floor above Lenskart opposite Mausam Vibhag makes visiting very easy.',
+  'Located right on Anisabad Khagaul Road with very convenient road connectivity and easy access.',
+  'The 1st floor store has a spacious, fully air-conditioned, and comfortable shopping layout.',
+  'A very convenient location opposite Mausam Vibhag that makes family apparel shopping hassle-free.',
 ]
 
 const CLOSING_POSITIVE = [
-  'Would happily recommend Motu Seth Restaurant to anyone visiting Bailey Road.',
-  'Looking forward to dining here again on my next visit to Patna.',
-  'A solid, trustworthy restaurant choice in Patna that I gladly recommend.',
-  'Definitely coming back for their special biryani and handi specialties.',
-  'Highly recommended for anyone looking for delicious food and great value.',
-  'A truly satisfying meal that makes me want to return soon.',
-  'Happily recommending this restaurant to friends and fellow foodies in Patna.',
-  'Great taste, rich flavors, and dependable hospitality all around.',
+  'Would happily recommend Dream Bazaar to anyone shopping for clothes in Anisabad, Patna.',
+  'Looking forward to shopping for our festival and wedding outfits here again.',
+  'A solid, trustworthy fashion destination in Patna that I gladly recommend.',
+  'Definitely coming back for their ethnic wear and family clothing collection.',
+  'Highly recommended for anyone looking for stylish clothes, great fitting, and pocket-friendly prices.',
+  'A truly satisfying clothes shopping trip that makes me want to return soon.',
+  'Happily recommending Dream Bazaar clothing store to friends and family in Patna.',
+  'Great clothing collection, affordable prices, and dependable customer service all around.',
 ]
 
 function getSeededIndex(seed: string, length: number): number {
@@ -138,88 +135,59 @@ export function generateDeterministicDraft(
   salt: string = ''
 ): string {
   const overallTone = factSheet.overall?.tone || 'positive'
-  const foodTone = factSheet.food?.tone || overallTone
-  const serviceTone = factSheet.service?.tone || overallTone
+  const seedBase = `${sessionId}_${salt}_${overallTone}`
 
-  const effectiveSeed = `${sessionId}-${salt}`
+  // Pick sentences from diverse banks using deterministic salt
+  let overallBank = OVERALL_POSITIVE
+  if (overallTone === 'neutral') overallBank = OVERALL_NEUTRAL
+  if (overallTone === 'negative') overallBank = OVERALL_NEGATIVE
 
-  // Pick sentences based on seed
-  let overallStr = ''
-  if (overallTone === 'positive') {
-    overallStr = OVERALL_POSITIVE[getSeededIndex(effectiveSeed + '-ov', OVERALL_POSITIVE.length)]
-  } else if (overallTone === 'neutral') {
-    overallStr = OVERALL_NEUTRAL[getSeededIndex(effectiveSeed + '-ov', OVERALL_NEUTRAL.length)]
-  } else {
-    overallStr = OVERALL_NEGATIVE[getSeededIndex(effectiveSeed + '-ov', OVERALL_NEGATIVE.length)]
-  }
+  let qualityBank = QUALITY_POSITIVE
+  if (factSheet.food?.tone === 'neutral') qualityBank = QUALITY_NEUTRAL
+  if (factSheet.food?.tone === 'negative') qualityBank = QUALITY_NEGATIVE
 
-  let foodStr = ''
-  if (foodTone === 'positive') {
-    foodStr = FOOD_POSITIVE[getSeededIndex(effectiveSeed + '-fd', FOOD_POSITIVE.length)]
-  } else if (foodTone === 'neutral') {
-    foodStr = FOOD_NEUTRAL[getSeededIndex(effectiveSeed + '-fd', FOOD_NEUTRAL.length)]
-  } else {
-    foodStr = FOOD_NEGATIVE[getSeededIndex(effectiveSeed + '-fd', FOOD_NEGATIVE.length)]
-  }
+  let serviceBank = SERVICE_POSITIVE
+  if (factSheet.service?.tone === 'neutral') serviceBank = SERVICE_NEUTRAL
+  if (factSheet.service?.tone === 'negative') serviceBank = SERVICE_NEGATIVE
 
-  let serviceStr = ''
-  if (serviceTone === 'positive') {
-    serviceStr = SERVICE_POSITIVE[getSeededIndex(effectiveSeed + '-sv', SERVICE_POSITIVE.length)]
-  } else if (serviceTone === 'neutral') {
-    serviceStr = SERVICE_NEUTRAL[getSeededIndex(effectiveSeed + '-sv', SERVICE_NEUTRAL.length)]
-  } else {
-    serviceStr = SERVICE_NEGATIVE[getSeededIndex(effectiveSeed + '-sv', SERVICE_NEGATIVE.length)]
-  }
+  const overallStr = overallBank[getSeededIndex(`${seedBase}_overall`, overallBank.length)]
+  const qualityStr = qualityBank[getSeededIndex(`${seedBase}_quality`, qualityBank.length)]
+  const serviceStr = serviceBank[getSeededIndex(`${seedBase}_service`, serviceBank.length)]
+  const locationStr = LOCATION_POSITIVE[getSeededIndex(`${seedBase}_loc`, LOCATION_POSITIVE.length)]
+  const closingStr = CLOSING_POSITIVE[getSeededIndex(`${seedBase}_close`, CLOSING_POSITIVE.length)]
 
-  let closingStr = ''
-  if (overallTone === 'positive') {
-    closingStr = CLOSING_POSITIVE[getSeededIndex(effectiveSeed + '-cl', CLOSING_POSITIVE.length)]
-  }
-
-  let locationStr = ''
-  if (overallTone === 'positive') {
-    locationStr = LOCATION_POSITIVE[getSeededIndex(effectiveSeed + '-loc', LOCATION_POSITIVE.length)]
-  }
-
-  // Highlights from factSheet if user selected them
+  // Optional highlight of ordered/purchased apparel items
   let highlightStr = ''
-  if (factSheet.ordered.length > 0 && foodTone === 'positive') {
-    const dishes = factSheet.ordered.slice(0, 2).join(' and ')
-    highlightStr = `We especially loved the ${dishes}.`
-  } else if (factSheet.liked.length > 0 && overallTone === 'positive') {
-    const aspects = factSheet.liked.slice(0, 2).join(' and ')
-    highlightStr = `The ${aspects} made our dining visit even more special.`
+  if (factSheet.ordered?.length) {
+    const itemList = factSheet.ordered.slice(0, 2).join(' and ')
+    const itemTemplates = [
+      `Really loved their collection in ${itemList}.`,
+      `We particularly liked the quality, fabric, and fitting in ${itemList}.`,
+      `The choices in ${itemList} were trendy, fresh, and very reasonably priced.`,
+    ]
+    highlightStr = itemTemplates[getSeededIndex(`${seedBase}_item`, itemTemplates.length)]
   }
 
-  if (overallTone !== 'positive') {
-    return [overallStr, foodStr, serviceStr].filter(Boolean).join(' ')
-  }
-
-  // Multiple assembly structures to provide radical variation
-  const templateIndex = getSeededIndex(effectiveSeed + '-tpl', 5)
+  // Template pattern selection
+  const templateIndex = getSeededIndex(`${seedBase}_tpl`, 5)
 
   let sentences: string[]
   switch (templateIndex) {
     case 0:
-      // Pattern: Food first, then service, then closing
-      sentences = [foodStr, serviceStr, closingStr]
+      sentences = [qualityStr, serviceStr, closingStr]
       break
     case 1:
-      // Pattern: Overall first, then food, then service
-      sentences = [overallStr, foodStr, serviceStr]
+      sentences = [overallStr, qualityStr, serviceStr]
       break
     case 2:
-      // Pattern: Service/hospitality first, then food flavors, then recommendation
-      sentences = [serviceStr, foodStr, closingStr]
+      sentences = [serviceStr, qualityStr, closingStr]
       break
     case 3:
-      // Pattern: Overall, then highlight/dish, then service
       sentences = [overallStr, highlightStr || locationStr, serviceStr]
       break
     case 4:
     default:
-      // Pattern: Food, dish highlight, and closing
-      sentences = [foodStr, highlightStr || locationStr, closingStr]
+      sentences = [qualityStr, highlightStr || locationStr, closingStr]
       break
   }
 
@@ -227,15 +195,15 @@ export function generateDeterministicDraft(
 }
 
 /**
- * Angles to steer LLM generation into varied voices and perspectives.
+ * Angles to steer LLM generation into varied voices and perspectives for a clothing store.
  */
 const LLM_ANGLES = [
-  'Focus angle: Highlight the rich flavors, delicious spices, and authentic aroma of the food.',
-  'Focus angle: Emphasize the warm table hospitality, polite staff, and prompt service.',
-  'Focus angle: Mention the prime, convenient location at Ishwari Arcade on Bailey Road, Patna.',
-  'Focus angle: Express genuine satisfaction with the biryani, starters, handi specialties, and generous portions.',
-  'Focus angle: A family diner who appreciated the pleasant, clean ambiance and welcoming atmosphere.',
-  'Focus angle: A satisfied foodie praising the authentic Indian taste and great value for money.',
+  'Focus angle: Highlight the stunning saree and bridal lehenga collection, fabric quality, and reasonable pricing.',
+  'Focus angle: Praise the stylish menswear collection (shirts, kurtas, formal suits) and the spacious, clean trial rooms.',
+  'Focus angle: Emphasize the helpful sales staff who patiently assisted in finding the right sizes and fitting.',
+  'Focus angle: Mention the prime, easy-to-reach location on the 1st floor above Lenskart opposite Mausam Vibhag on Anisabad Khagaul Road.',
+  'Focus angle: A family shopper who found complete festive and daily wear outfits for everyone under one roof.',
+  'Focus angle: Rave about the fashionable kurtis, western wear, fresh seasonal arrivals, and quick billing counter.',
 ]
 
 /**
@@ -246,7 +214,7 @@ const LLM_ANGLES = [
 export async function generateReviewDraft(
   factSheet: FactSheet,
   sessionId: string,
-  restaurantName: string,
+  restaurantName: string = 'Dream Bazaar',
   options: GenerationOptions = {}
 ): Promise<GenerationResult> {
   const previousText = options.previousText || ''
@@ -271,14 +239,20 @@ export async function generateReviewDraft(
   // Pick a dynamic angle for prompt variety
   const randomAngle = LLM_ANGLES[Math.floor(Math.random() * LLM_ANGLES.length)]
 
-  const prompt = `You are helping a restaurant diner write a brief, authentic Google review draft for their dining visit to ${restaurantName} on Bailey Road in Patna.
+  const prompt = `You are helping a customer write a brief, authentic Google review for their visit to ${restaurantName || 'Dream Bazaar'}, a premier clothing store and fashion showroom located on the 1st Floor (Above Lenskart), Opposite Mausam Vibhag, Anisabad Khagaul Road, Patna.
+
+Key Store Details:
+- Store Type: Premium Clothing & Fashion Store (Menswear, Womenswear, Ethnic Sarees, Bridal Lehengas, Kurtis, Suits, Kids Wear, Western outfits, and Festive Apparel).
+- Location: 1st Floor (Above Lenskart), Opposite Mausam Vibhag, Anisabad Khagaul Road, Patna.
+- Highlights: Premium fabric quality, latest trendy fashion designs, perfect fitting, neat trial rooms, polite sales executives who assist with styling and sizing, affordable honest prices, fast billing.
+
 STRICT GUIDELINES:
-1. Write in the first person ("I" or "We") as a genuine diner who visited this restaurant.
-2. Length MUST be between 30 and 65 words (about 2 to 3 natural sentences).
-3. Mention dining highlights like delicious food, rich flavors, authentic biryani, starters or handi curries, courteous staff, pleasant ambience at Ishwari Arcade, or great value.
+1. Write in the first person ("I" or "We") as a genuine shopper who bought or browsed clothes at Dream Bazaar.
+2. The review MUST read specifically like a clothing / apparel showroom review (e.g., mention fabric quality, ethnic wear, sarees, lehengas, shirts, suits, trial rooms, or fit).
+3. Length MUST be between 30 and 65 words (about 2 to 3 natural sentences).
 4. ${randomAngle}
 5. Write with unique phrasing and natural conversational flow. Avoid cliché templates or repetitive formulas.
-6. Do NOT include words: 'star', 'stars', 'rating', 'manager', 'waiter', 'discount', 'coupon', 'promo', 'freebie', URLs, hashtags, or emojis.
+6. Do NOT include words: 'star', 'stars', 'rating', 'manager', 'waiter', 'restaurant', 'food', 'dish', 'biryani', 'menu', URLs, hashtags, or emojis.
 7. Return plain text only without quotation marks or bullet points.`
 
   // 1. Try Groq (Fast, modern LLM)
@@ -306,23 +280,19 @@ STRICT GUIDELINES:
 
       if (response.ok) {
         const data = await response.json()
-        const candidateText = data?.choices?.[0]?.message?.content?.trim().replace(/^["']|["']$/g, '')
-        if (candidateText && candidateText !== previousText) {
-          const validation = validateDraft(candidateText, factSheet)
-          if (validation.valid) {
-            return { text: candidateText, method: 'llm' }
-          }
+        const text = data.choices?.[0]?.message?.content?.trim().replace(/^["']|["']$/g, '')
+        const validation = validateDraft(text, factSheet)
+
+        if (validation.valid && text && text !== previousText) {
+          return { text, method: 'llm' }
         }
-      } else {
-        const errBody = await response.text().catch(() => '')
-        console.warn('Groq API error response:', response.status, errBody)
       }
     } catch (err) {
-      console.warn('Groq LLM call failed or timed out:', err)
+      console.warn('Groq generation fallback:', err)
     }
   }
 
-  // 2. Try Anthropic (Claude)
+  // 2. Try Anthropic
   if (anthropicKey) {
     try {
       const controller = new AbortController()
@@ -336,48 +306,10 @@ STRICT GUIDELINES:
           'content-type': 'application/json',
         },
         body: JSON.stringify({
-          model: process.env.ANTHROPIC_MODEL || 'claude-haiku-4-5',
-          max_tokens: 150,
-          temperature: 1.0,
-          messages: [{ role: 'user', content: prompt }],
-        }),
-        signal: controller.signal,
-      })
-
-      clearTimeout(timeoutId)
-
-      if (response.ok) {
-        const data = await response.json()
-        const candidateText = data?.content?.[0]?.text?.trim().replace(/^["']|["']$/g, '')
-        if (candidateText && candidateText !== previousText) {
-          const validation = validateDraft(candidateText, factSheet)
-          if (validation.valid) {
-            return { text: candidateText, method: 'llm' }
-          }
-        }
-      }
-    } catch (err) {
-      console.warn('Anthropic LLM call failed or timed out:', err)
-    }
-  }
-
-  // 3. Try OpenAI
-  if (openAiKey) {
-    try {
-      const controller = new AbortController()
-      const timeoutId = setTimeout(() => controller.abort(), 7000)
-
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${openAiKey}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          model: process.env.OPENAI_MODEL || 'gpt-4o-mini',
-          messages: [{ role: 'user', content: prompt }],
+          model: 'claude-3-haiku-20240307',
+          max_tokens: 300,
           temperature: 0.95,
-          max_tokens: 150,
+          messages: [{ role: 'user', content: prompt }],
         }),
         signal: controller.signal,
       })
@@ -386,25 +318,19 @@ STRICT GUIDELINES:
 
       if (response.ok) {
         const data = await response.json()
-        const candidateText = data?.choices?.[0]?.message?.content?.trim().replace(/^["']|["']$/g, '')
-        if (candidateText && candidateText !== previousText) {
-          const validation = validateDraft(candidateText, factSheet)
-          if (validation.valid) {
-            return { text: candidateText, method: 'llm' }
-          }
+        const text = data.content?.[0]?.text?.trim().replace(/^["']|["']$/g, '')
+        const validation = validateDraft(text, factSheet)
+
+        if (validation.valid && text && text !== previousText) {
+          return { text, method: 'llm' }
         }
       }
     } catch (err) {
-      console.warn('OpenAI LLM call failed or timed out:', err)
+      console.warn('Anthropic generation fallback:', err)
     }
   }
 
-  // 4. Robust Deterministic Template Fallback with anti-repetition salt
-  let fallbackText = generateDeterministicDraft(factSheet, sessionId, dynamicSalt)
-  // If identical to previous text, re-roll with extra salt
-  if (fallbackText === previousText) {
-    fallbackText = generateDeterministicDraft(factSheet, sessionId, dynamicSalt + '-alt')
-  }
-
-  return { text: fallbackText, method: 'fallback' }
+  // 3. Deterministic Rich Sentence Bank Fallback (Always guaranteed, never crashes)
+  const fallbackDraft = generateDeterministicDraft(factSheet, sessionId, dynamicSalt)
+  return { text: fallbackDraft, method: 'fallback' }
 }

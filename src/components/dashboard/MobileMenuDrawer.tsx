@@ -58,12 +58,12 @@ export default function MobileMenuDrawer({
   }
 
   const handleShareSurvey = async () => {
-    const surveyUrl = `${window.location.origin}/r/motu-seth`
+    const surveyUrl = `${window.location.origin}/r/dream-bazaar`
     if (navigator.share) {
       try {
         await navigator.share({
-          title: `${restaurantName} — Diner Feedback`,
-          text: `Share your dining experience at ${restaurantName}!`,
+          title: `${restaurantName} — Customer Feedback`,
+          text: `Share your shopping experience at ${restaurantName}!`,
           url: surveyUrl,
         })
       } catch {}
@@ -233,14 +233,14 @@ export default function MobileMenuDrawer({
 
           <div className="grid grid-cols-2 gap-2">
             <Link
-              href="/r/motu-seth"
+              href="/r/dream-bazaar"
               target="_blank"
               onClick={onClose}
               className="p-3 rounded-2xl bg-slate-950/70 border border-slate-800 flex flex-col items-center justify-center text-center gap-1.5 hover:bg-slate-800/60 transition-colors"
             >
               <ExternalLink className="w-4 h-4 text-amber-400" />
               <span className="text-xs font-bold text-slate-200">Open Live Survey</span>
-              <span className="text-[10px] text-slate-400">Diner mobile view</span>
+              <span className="text-[10px] text-slate-400">Customer view</span>
             </Link>
 
             <button

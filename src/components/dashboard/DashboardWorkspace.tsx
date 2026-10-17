@@ -123,17 +123,17 @@ export default function DashboardWorkspace({
               </span>
             </div>
             <p className="text-xs text-slate-400 truncate max-w-xl">
-              {business.location ? `${business.location} • ` : ''}Restaurant Dining Experience &amp; Analytics
+              {business.location ? `${business.location} • ` : ''}Customer Shopping Experience &amp; Analytics
             </p>
           </div>
 
           {/* Quick Action Buttons for Mobile / Tablet */}
           <div className="flex items-center gap-2 self-start sm:self-auto">
-            {/* Live Survey Diner Preview */}
+            {/* Live Survey Shopper Preview */}
             <Link
-              href={campaigns[0]?.slug ? `/r/${campaigns[0].slug}` : '/r/motu-seth'}
+              href={campaigns[0]?.slug ? `/r/${campaigns[0].slug}` : '/r/dream-bazaar'}
               target="_blank"
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 text-xs font-semibold text-amber-400 hover:text-amber-300 transition-colors shadow-xs active:scale-95"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-800 text-xs font-semibold text-sky-400 hover:text-sky-300 transition-colors shadow-xs active:scale-95"
             >
               <ExternalLink className="w-3.5 h-3.5" />
               <span>Live Survey</span>

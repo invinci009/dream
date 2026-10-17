@@ -45,15 +45,15 @@ export default function SettingsTab({
   // Navigation section toggle
   const [activeSection, setActiveSection] = useState<'profile' | 'security'>('profile')
 
-  // Restaurant Profile state
+  // Store Profile state
   const [name, setName] = useState(business.name)
   const [location, setLocation] = useState(business.location || '')
-  const [phone, setPhone] = useState(business.phone || '7631996611')
-  const [secondaryPhone, setSecondaryPhone] = useState(business.secondaryPhone || '7631996611')
+  const [phone, setPhone] = useState(business.phone || '9097602005')
+  const [secondaryPhone, setSecondaryPhone] = useState(business.secondaryPhone || '9097602005')
   const [googleUrl, setGoogleUrl] = useState(business.googleReviewUrl || '')
   const [welcomeText, setWelcomeText] = useState(
     (typeof business.welcomeMessage === 'object' && business.welcomeMessage?.en) ||
-      "Thanks for dining with us! We'd love to hear about your experience today."
+      "Thanks for shopping with us! We'd love to hear about your experience today."
   )
   const [primaryColor, setPrimaryColor] = useState(business.primaryColor || '#f43f5e')
   const [isSavingProfile, setIsSavingProfile] = useState(false)
@@ -271,7 +271,7 @@ export default function SettingsTab({
                   id="sLoc"
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
-                  placeholder="4th Floor, Ishwar Arcade, Service Rd, Bailey Rd, near Raj Palace, S. K. Puram, Danapur, Patna, Bihar 801503, India"
+                  placeholder="1st Floor (Above Lenskart), Opposite Mausam Vibhag, Anisabad Khagaul Road, Patna, Bihar"
                   className="bg-slate-950/60 border-slate-800 text-white h-10 text-xs rounded-xl"
                 />
               </div>
@@ -280,10 +280,10 @@ export default function SettingsTab({
                 <div className="space-y-1.5">
                   <div className="flex items-center justify-between">
                     <Label htmlFor="sPhone" className="text-xs font-medium text-slate-300 flex items-center gap-1.5">
-                      <Phone className="w-3.5 h-3.5 text-amber-400" />
+                      <Phone className="w-3.5 h-3.5 text-sky-400" />
                       Main Customer Helpline No.
                     </Label>
-                    <span className="text-[10px] font-bold text-amber-400 bg-amber-500/10 px-1.5 py-0.5 rounded">
+                    <span className="text-[10px] font-bold text-sky-400 bg-sky-500/10 px-1.5 py-0.5 rounded">
                       Customer Facing
                     </span>
                   </div>
@@ -291,11 +291,11 @@ export default function SettingsTab({
                     id="sPhone"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    placeholder="7631996611"
+                    placeholder="9097602005"
                     className="bg-slate-950/60 border-slate-800 text-white h-10 text-xs rounded-xl"
                   />
                   <p className="text-[10px] text-slate-400">
-                    Primary number displayed to diners on survey &amp; thank you cards.
+                    Primary number displayed to shoppers on survey &amp; contact cards.
                   </p>
                 </div>
 
@@ -307,7 +307,7 @@ export default function SettingsTab({
                     id="sSecPhone"
                     value={secondaryPhone}
                     onChange={(e) => setSecondaryPhone(e.target.value)}
-                    placeholder="7631996611"
+                    placeholder="9097602005"
                     className="bg-slate-950/60 border-slate-800 text-white h-10 text-xs rounded-xl"
                   />
                   <p className="text-[10px] text-slate-400">
@@ -324,7 +324,7 @@ export default function SettingsTab({
                   id="sGoogle"
                   value={googleUrl}
                   onChange={(e) => setGoogleUrl(e.target.value)}
-                  placeholder="https://search.google.com/local/writereview?placeid=ChIJA-ShB09W7TkRdmS5DCofbiw"
+                  placeholder="https://search.google.com/local/writereview?placeid=ChIJfZJgPwBX7TkRU469KMlU5nM"
                   className="bg-slate-950/60 border-slate-800 text-white h-10 text-xs rounded-xl"
                 />
                 <p className="text-[11px] text-slate-400">
@@ -396,9 +396,9 @@ export default function SettingsTab({
                 </div>
                 <p className="text-[11px] text-slate-400 mt-0.5">
                   Aliases supported for login: <strong className="text-slate-300">admin</strong>,{' '}
-                  <strong className="text-slate-300">owner</strong>,{' '}
-                  <strong className="text-slate-300">motu</strong>,{' '}
-                  <strong className="text-slate-300">motuseth</strong>
+                  <strong className="text-slate-300">dream</strong>,{' '}
+                  <strong className="text-slate-300">dreambazaar</strong>,{' '}
+                  <strong className="text-slate-300">owner</strong>
                 </p>
               </div>
             </div>

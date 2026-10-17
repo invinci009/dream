@@ -46,7 +46,7 @@ export async function GET(request: NextRequest) {
           'Content-Type': 'image/svg+xml',
           'Cache-Control': 'no-cache, no-store, must-revalidate',
           ...(isDownload
-            ? { 'Content-Disposition': `attachment; filename="motu-seth-qr-${slug}.svg"` }
+            ? { 'Content-Disposition': `attachment; filename="dream-bazaar-qr-${slug}.svg"` }
             : {}),
         },
       })
@@ -69,7 +69,7 @@ export async function GET(request: NextRequest) {
         'Content-Type': 'image/png',
         'Cache-Control': 'no-cache, no-store, must-revalidate',
         ...(isDownload
-          ? { 'Content-Disposition': `attachment; filename="motu-seth-qr-${slug}.png"` }
+          ? { 'Content-Disposition': `attachment; filename="dream-bazaar-qr-${slug}.png"` }
           : {}),
       },
     })

@@ -43,12 +43,12 @@ export default function ReviewDraftCard({
           if (data?.final_text || data?.original_text) {
             setDraft(data.final_text || data.original_text)
           } else {
-            setDraft(`Had a wonderful dining experience at ${restaurantName || 'Motu Seth Restaurant'}! The food was delicious, aromatic, and full of rich flavor, and the hospitality was remarkably warm and attentive. Highly recommend dining here in Patna!`)
+            setDraft(`Had a wonderful shopping experience at ${restaurantName || 'Dream Bazaar'}! The collection of clothing, footwear, and household essentials was extensive, prices were very pocket-friendly, and the staff was courteous. Highly recommend shopping here in Patna!`)
           }
         })
         .catch((err) => {
           console.warn('Draft load error:', err)
-          setDraft(`Had a wonderful dining experience at ${restaurantName || 'Motu Seth Restaurant'}! The food was delicious, aromatic, and full of rich flavor, and the hospitality was remarkably warm and attentive. Highly recommend dining here in Patna!`)
+          setDraft(`Had a wonderful shopping experience at ${restaurantName || 'Dream Bazaar'}! The collection of clothing, footwear, and household essentials was extensive, prices were very pocket-friendly, and the staff was courteous. Highly recommend shopping here in Patna!`)
         })
         .finally(() => setIsLoadingDraft(false))
     }

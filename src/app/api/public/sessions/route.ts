@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const targetSlug = parsed.data.slug || parsed.data.campaign_id || 'motu-seth'
+    const targetSlug = parsed.data.slug || parsed.data.campaign_id || 'dream-bazaar'
 
     // 1. Look up campaign & business from Firestore
     const { campaign, business } = await getCampaignBySlug(targetSlug)

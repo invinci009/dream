@@ -9,17 +9,17 @@ let db: Firestore | null = null
 // Embedded production service account fallback for Vercel deployment
 const DEFAULT_SERVICE_ACCOUNT = {
   type: 'service_account',
-  project_id: 'star-e7eb0',
-  private_key_id: '21de2fce960ca082ac7ecb0c3f8f7c9f1e785997',
+  project_id: 'motu-seth',
+  private_key_id: 'e9e88ffc10692ea77cdea61b8e62548d62da97c7',
   private_key:
-    '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCy9SUp14XpOpHE\n7RnoPgTHIEDH9X6VpNkAEGsv4BA5LaJL9JsqixWeXBYkqhZjk6Q0KpPRyHj9ewOx\noam8hMsPSQgZYUMX1eVkDIB08Y6Uvny3+GPO0eoW+XMrJa7xwWrSVF+Fwcs3wngF\ncwv6NnI0dMm4L0sqPVxfx4VIRYIhyI4Wcv4YUDHhxSsj2Ip48VixUx39l7Iv9gqM\nNL8ExgX1UY8Tb2xL0+6bmMTKyiNf/5extrauJsC/RJZby6xvqkhvnZIvYqtWzXas\nmtWiBeTwB9yAl9UWaOEzmtLIGMWmMj7/u9t71mwVM8eOe+XXY87EmDaJsOb/5Kha\nnzZc2JkFAgMBAAECggEAElOfmC7dpFpepjufzRRY2emYKMIf0gRdQq/rwi3gi3J8\nbenhYBR5RMvqapvOiikLBlqb475zgYXxBWZoYwl4YBrbDPpUbCL4CGxtVUyNjPcK\n/64czofZwLuQC0mjJlfn8B064RBNFus/7lLvVZLw1CVnqQiS2oMJLDfbEuEnZ/0d\nezz7lZUVMe5jexk5CG87Btr0I7hqy5l2tK704hlmtH5IUTPmf6dJc53IU2kjn2Ud\n8n97ERFQM245c2I6So7moGGANQeHikYa6aCw6Pwc6ZYl1MA/ACLuR9rJBmj7t2/F\ntK7IIggQL79sEVQwprR7s8gg3ZU6zimICPmGNmT5wQKBgQDlEPcDV9CJRukp3FaX\nE/2N0C8etSNrkeB9rHuaJswxP2mGMenOvzFyGci80IjOHXD7BFeOKXpRBteDlzvv\na1AYTBgELh3/uius32/6gYSbTxc6VcTmwrdp9U/hPDCCtlPmOHaV+vEHr30+cMxo\nj4j4GIOCC1eTlrsh+VMFHXIWZQKBgQDH/+Dp92F5/jhQyjezDzIZ8peNlvhsYQGv\nWZrCm3sgLnWXpw8J6baG2P/sKeDxdM1OjhPmEgm0wDXO1ISJXBz18Kvsd1UWpmQk\nLG1DKBg+jzhTyUnB5O1arpqNt7IXx9tAcc+CsVmRpIf9EAUy1B9UJ3ZiiMIq3k6c\np9d8OMZ+IQKBgQCyFqZ0qukuUTslmHCZtKkEgD6iGSIYl6l5C4htKIzIHQzlkBi+\n7FZ85x7x7Q7vcGROQ+nuVMEMDc2wOPwX/86dlUt2tIQONaePF4fvspJuTOc6K0SS\nRABlGJup+Smd9jL0YiGQKTELUJyG1xuUj0Nl32keycKktCN5HmY1K9dvIQKBgGcP\nIOwPcOh3Krfe7ELV4sBiNNxeXlciycZ9CvWbPyA/MJNcH7DBATCNo5sjnWlvAdin\n9/MHen7syQ1yj3VkxPuq8Dzi5TLNvS6ywf7oK04ZaTIruFk0yWaAMN40OY5tizqz\nKvYyw2/8c6Lg3Xzqt9Yam7N8u2lxstqg1raJXydhAoGBAM8e+XBRTQJSixOcEy3\np0oaMkYxTT92tzAUKCV9wVCVYGv/ngA+g8ifzHGoSJ1Ax62od6uAB1MQ8DyCfZkD1\nzc0TwLgpP7wsj1VNvDquHMaeyWnZIMLdMHm0cnFFQb/8bEqnSCRJsN2h0G4s2eCY\nnc/W5F5Q1RZ57/v8Lt+y/gml\n-----END PRIVATE KEY-----\n',
-  client_email: 'firebase-adminsdk-fbsvc@star-e7eb0.iam.gserviceaccount.com',
-  client_id: '111474078220378571904',
+    '-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDLOsmBxgX5xTyZ\na8lliTdkTLaJOU3KnweVUifHUoSLe5+b5cN8NrEfO694SbZk0WYz8QZOHnUSgRNJ\n2uAmGRj+BjMRHePkYk61odWQVG3Kq9DUIRIcEInYkeuaJCq5/pAmySqUn6EyhfBy\nslBRJ4L5sxdbi7bd/E4SIi6P6IfbbVFNPVeA60fmRSr24CFwDQh9lFbK2AINTsoz\nwJsa4pyWxZBawysCa4fcaxxAKG9fRIUffTrx195A28uwx2KepxAabXOUofCtr0oj\nRvXFXRnvNGYxmHVvDrv3c7sR1IhtlKwF4RHbnKJvCMtLvKQUo8olE+k40zAMeL9M\nKamJa/RBAgMBAAECggEAA2Bf06+iDshySCGXJYA2SDd8EDiVrHL1nHX9IjMimkdS\nBgmMX2ZwjT0fyQb/KEVQW4w6whaAdG+/jcpnT0q7HxFO948AZ8gjAvfZhVMvGx8S\np6DrB5tWEZ/kWFnBz02a6yy2xTmyYxVVmC+Sj7PxLvaE7KjxagEUnPmDaNxV/Cpu\nXbKorZ3B53EI+P+o4k34VxcrPKBGGvdfgCWX3tXt0mYIiydVp+CxLUXarMNopEgU\nHEIvqExG4GzUoyWdC3IU/Pms7N8Wz6mOULVuSsBff8Z/S1MpzRcoJgIIo+MZ7+BD\nIoATCDS+JK7MvRtibjRkcoHq3lOlYMP1XPtZqiK66QKBgQDw4Jx5LTZdPv9sk7fy\nJ0caNVatkSLBBfwpRmnXCJ+U33051wPPsSQxNjOCY9tahhgP9CXeALWeR0psG017\nDorisalRxw1lxuexGn9b40MUL84SLhJMP1oNtWsdOjyOjWzEIJAlMYoh6o/uuX/6\noYFea6/9ud59ruskQ8vO1LRIXQKBgQDX/Rmg78xiUaB6jIuMR7/ctnfQYYSmCDCf\njQmk+YEkPpXmZk76Un1w6XPXeNQFIRsftFfQWPO8EU4Jp62BloG5F7sagOP3215j\nt//VFs6H90eDCgnzrWxdu1lN4f/cBX3+hcV+hp99Ah1hqu8k0xA9+pZ/o4M+ydyS\n217WtllNNQKBgQCxRSwCxfJXZ3CFEKV0MdHTCOQUclZ4ZZYxLh/gX/lJj7xSH9ov\nNHelO/VmhWS+VydIPm7L1gvTQzYTH3jDEm3F7eflRi+m8l466XxHPJZ2OcRXfs56\njLkSk6wT43MDmjMsl6ZdqPq2gTCSCLSV19wkh+4KNYr3Rg7JLpfETKetBQKBgCya\nihZgLxcGwFtOdusLTiXoUKnp2ZjoDBKG77zwAalYe2BPNHQhYOJWc6PFwhMlGRLd\nDV1rYTovYKxBwmUGjdeJfQwmHe3rkXyKXPzGbvRJLq1y/0chQ0XAENsylsH7KF/N\nhFFyv7DzJNoskKJMLAiAnV/ShqIK0dBKGTXCBoMZAoGBAK74Ykwp1tRkSxGqQmcs\n7Bx9ypfr2PYBDLE4NtUdnrPJvGph6CX4b7HcClWtE6Kd3yAJkbFjpr1HBwWZerEJ\nEVr7BA0MYyV0WLGKs1koHK1q9f3y6xC8IvV5v0CXjj9Ka1LWVKemxbS4nkWJx7/R\ngZ8EibfCFeOqse+9WowUb2lo\n-----END PRIVATE KEY-----\n',
+  client_email: 'firebase-adminsdk-fbsvc@motu-seth.iam.gserviceaccount.com',
+  client_id: '113242961324118038132',
   auth_uri: 'https://accounts.google.com/o/oauth2/auth',
   token_uri: 'https://oauth2.googleapis.com/token',
   auth_provider_x509_cert_url: 'https://www.googleapis.com/oauth2/v1/certs',
   client_x509_cert_url:
-    'https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40star-e7eb0.iam.gserviceaccount.com',
+    'https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40motu-seth.iam.gserviceaccount.com',
   universe_domain: 'googleapis.com',
 }
 
