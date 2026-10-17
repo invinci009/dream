@@ -1,16 +1,16 @@
 /**
  * Vercel Environment Variables Synchronizer
  *
- * Reads `.env.local` and pushes all required environment variables directly to your Vercel project
- * using `npx vercel env`.
+ * Reads `.env.local` and pushes all configuration variables directly to your Vercel project
+ * using the Vercel CLI (`npx vercel env`).
  *
  * Usage:
  *   npm run vercel:env
  *   node scripts/update-vercel-env.js [environments...]
  *
  * Examples:
- *   node scripts/update-vercel-env.js production preview development
- *   node scripts/update-vercel-env.js production
+ *   npm run vercel:env                                  # Pushes to production, preview & development
+ *   node scripts/update-vercel-env.js production        # Pushes to production only
  */
 
 const fs = require('fs');
@@ -19,22 +19,12 @@ const { spawnSync } = require('child_process');
 
 const ENV_FILE = path.join(__dirname, '..', '.env.local');
 
-// Variables to sync to Vercel
-const TARGET_KEYS = [
-  'FIREBASE_PROJECT_ID',
-  'FIREBASE_CLIENT_EMAIL',
-  'FIREBASE_PRIVATE_KEY',
-  'FIREBASE_SERVICE_ACCOUNT',
-  'NEXT_PUBLIC_APP_URL',
-  'APP_DOMAIN',
-  'SESSION_COOKIE_SECRET',
-  'HASH_SALT',
-  'GROQ_API_KEY',
-  'ANTHROPIC_API_KEY',
-  'ADMIN_INITIAL_PASSWORD',
-  'UPSTASH_REDIS_REST_URL',
-  'UPSTASH_REDIS_REST_TOKEN',
-];
+// Keys that should NEVER be synced to Vercel (internal tokens, temp vars)
+const IGNORED_KEYS = new Set([
+  'VERCEL_OIDC_TOKEN',
+  'VERCEL_PROJECT_ID',
+  'VERCEL_ORG_ID',
+]);
 
 // Target Vercel environments: 'production', 'preview', 'development'
 const TARGET_ENVIRONMENTS = process.argv.slice(2).length > 0
@@ -100,14 +90,14 @@ function parseEnvFile(filePath) {
 }
 
 function updateVercelEnv() {
-  console.log('\n========================================');
-  console.log('🚀 Dream Bazaar • Vercel Env Sync Tool');
-  console.log('========================================\n');
+  console.log('\n======================================================');
+  console.log('🚀 Dream Bazaar • Vercel Environment Synchronizer');
+  console.log('======================================================\n');
 
-  console.log(`Reading configuration from: ${path.relative(process.cwd(), ENV_FILE)}`);
+  console.log(`📂 Reading configuration from: ${path.relative(process.cwd(), ENV_FILE)}`);
   const parsedEnv = parseEnvFile(ENV_FILE);
 
-  // If service account JSON exists on disk, ensure FIREBASE_SERVICE_ACCOUNT is available
+  // Fallback: If service account JSON exists on disk, ensure FIREBASE_SERVICE_ACCOUNT is available
   const saPath = path.join(__dirname, '..', 'firebase-service-account.json');
   if (fs.existsSync(saPath) && !parsedEnv['FIREBASE_SERVICE_ACCOUNT']) {
     try {
@@ -116,31 +106,33 @@ function updateVercelEnv() {
     } catch {}
   }
 
-  console.log(`Target Vercel environments: ${TARGET_ENVIRONMENTS.join(', ')}\n`);
+  const keysToSync = Object.keys(parsedEnv).filter(
+    (key) => !IGNORED_KEYS.has(key) && parsedEnv[key] !== undefined && parsedEnv[key] !== ''
+  );
+
+  console.log(`🎯 Target Vercel environments: ${TARGET_ENVIRONMENTS.join(', ')}`);
+  console.log(`📋 Total variables to synchronize: ${keysToSync.length}\n`);
 
   let totalUpdated = 0;
   let totalErrors = 0;
 
-  for (const key of TARGET_KEYS) {
+  for (const key of keysToSync) {
     const value = parsedEnv[key];
-    if (value === undefined || value === null || value === '') {
-      continue;
-    }
 
-    console.log(`\n📌 Processing [${key}]...`);
+    console.log(`📌 Syncing [${key}]...`);
 
     for (const envTarget of TARGET_ENVIRONMENTS) {
-      process.stdout.write(`   └─> Setting for "${envTarget}": `);
+      process.stdout.write(`   └─> [${envTarget}]: `);
 
-      // 1. Remove existing env variable if present (avoids "already exists" failure)
+      // 1. Remove existing env variable if present to avoid conflict
       spawnSync('npx', ['-y', 'vercel', 'env', 'rm', key, envTarget, '-y'], {
         stdio: 'ignore',
         shell: true,
       });
 
-      // 2. Add the environment variable by streaming value to stdin
+      // 2. Add the environment variable by passing value into stdin
       const result = spawnSync('npx', ['-y', 'vercel', 'env', 'add', key, envTarget], {
-        input: value,
+        input: String(value) + '\n',
         encoding: 'utf8',
         shell: true,
       });
@@ -151,11 +143,11 @@ function updateVercelEnv() {
       } else {
         const errorOut = (result.stderr || result.stdout || '').trim();
         if (errorOut.includes('already exists')) {
-          console.log('ℹ️ Already set');
+          console.log('ℹ️ Already exists');
         } else {
           console.log('⚠️ Failed');
           if (errorOut) {
-            console.log(`      Error: ${errorOut.split('\n')[0]}`);
+            console.log(`      ${errorOut.split('\n')[0]}`);
           }
           totalErrors++;
         }
@@ -163,12 +155,12 @@ function updateVercelEnv() {
     }
   }
 
-  console.log('\n========================================');
-  console.log(`🎉 Sync Completed! (Updated: ${totalUpdated}, Errors: ${totalErrors})`);
-  console.log('========================================');
+  console.log('\n======================================================');
+  console.log(`🎉 Sync Completed! (Successfully set: ${totalUpdated}, Errors: ${totalErrors})`);
+  console.log('======================================================');
   console.log('\nNext steps:');
-  console.log('  1. Deploy with fresh envs: npx vercel --prod');
-  console.log('  2. Or pull envs locally:   npx vercel env pull\n');
+  console.log('  • View your envs:    npx vercel env ls');
+  console.log('  • Redeploy project:  npx vercel --prod\n');
 }
 
 updateVercelEnv();
