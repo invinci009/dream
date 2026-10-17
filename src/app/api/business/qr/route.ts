@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
   } else if (host && !host.includes('pmzaika')) {
     baseUrl = `${proto}://${host}`
   } else {
-    baseUrl = 'https://three-star-ebon.vercel.app'
+    baseUrl = 'https://dream-z584.vercel.app'
   }
 
   const targetUrl = `${baseUrl.replace(/\/$/, '')}/r/${slug}`
